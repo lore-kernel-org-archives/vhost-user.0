@@ -1,92 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.176
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1792737308;
-	b=vgJyqH0ZVXZTbwgYpFtsyzgkL4W7+RPwUVpi+Ae7c4dTLH/lWMHNdWVCCUIfsBRXb6vq
-	 LKLMXFHe0J5DkT23zHWDUSv5kJbe3eWIK0hrjpztnIN99V1m08Bf/B4T4q/ZwcqlQtGiu
-	 H57ic+eZl2m8Vg43CXsFDahx3Gys7scIrTVG2dwHx68ba4PlB26RW7o5tcKSEubyyp7ff
-	 o/aFlVRgN8eMXQOL3qC9hesYL2YAgi7YRKardA5O/yoWrRfrmOnwuo8heZfcBboI+1alQ
-	 Iy0d3+RvwUUDT1+WKnrx7oyZyvuVaSk7FaBbdZv4350Z5n4RRs/vB7RMKLuHMnmEI0A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1792737308;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Content-Type;
-	bh=ZsUNjtEj4RUe68Fi2odqN0bFEItXBMJkpeS0oj9PhNc=;
-	b=rLNR8FuI8/yF5+yNZyX9iSeyHxw1819wM3xp37uGakO3M0oJ3bGsKcyZr/FTaxwcfVqo
-	 Nt2l8TMA/k0ioA/YUiolrMqrwCi8kAZ/T+HUL/YJpOMxAGQxKmcnxyEtARqxXXN0xxp9B
-	 rW5kOotEjAulzfrBa2pPpxj7ll9FvkmtKd+ajgx4ioOjErYq6a8Sy/oPWrZ3Vsyqz9p56
-	 Jvc8O0juOZIe0k33tSXLyg9vaJOupuNajGnl1ltzIImm/lTxthBtJAPrRqalaqxUFPHx5
-	 P44367QuTuLMBg22XcH2q409Ss5ZimI3QUjYg3FTvhCMA+4h9lchM95RCQSTngxDtFw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linuxfoundation.org;
-	spf=pass smtp.mailfrom=linuxfoundation.org;
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=Ho9GkIio;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.176
-Received: from mail-oi1-f176.google.com (mail-oi1-f176.google.com [209.85.167.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1792772689;
+	b=23UtyUCQv2/FFvZ8wQfnqs4v096SELxMQhXwSrZ9Npd+VElBwqk9icnZkGqPJyj2YQd4
+	 rjXNajy01hpoRz29prw9/7sb0hdljGeLPWiX/9FUwxcBkTEQV9KkY+/ThwsVwB8+Dp5Ce
+	 oNlKvzmCinbLwaN3QrqDoWEFOHfUiS1sUHDzSGQR+mOIsX27teoCg0Hifi074YnN/lMTf
+	 Y8XZ8l6Ncfdbt6bTil4pQ8lCaqen5rS2TXfdAyB7BD+WMGbl5fiOET7AEzsPbW9HBR655
+	 hMZupcVIaYQzJuWKDoc0R+vkxpxAuDUeMoL56NqELJ5cBfAbNTPpFfxVJXpkzaUXhAQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1792772689;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:X-Mimecast-Spam-Score:X-Mimecast-MFC-PROC-ID:
+	 X-Mimecast-Originator:Content-Type:Content-Transfer-Encoding;
+	bh=+wDdcMQ8EY02wA42GqC3QO4nYriHJaInirxC5LhjcR8=;
+	b=ht9kzDWdAgC1XlnKOeAwJN6lPxaXKC9KPgrfytR+ukRS4B/WjWww3k6vPgvgS/jBWYt/
+	 voQTnhY1Md2PYvigHWwcPovOOUrZG1f5bbKXegRmXu/S2rpJQ1wlYPGHiw7nO/x+rcF3f
+	 kF1WeR8nu8xNw8lSpIP37btbZ0IQCQWoVJb4tlAWSdWULXED1hTMzDKqF5WXJPkFqouzL
+	 doFRoNL8AL3z8FJhmrqJMSkiDpv72y6A16KVgigQT2UKGm6Rd5CijbqstpyaJu0r2MMWc
+	 5aqug6v210q+W0XJg5UM6WD9Wj98tcPwlweBBYAW+3K0iwmo3qGZqPgK7kMdCzFFf7Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dPWuEZR4;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0872B606A31A
-	for <vhost-user@lists.linux.dev>; Fri, 23 Oct 2026 06:35:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0872B606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linuxfoundation.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EEFF606A31A
+	for <vhost-user@lists.linux.dev>; Fri, 23 Oct 2026 16:24:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EEFF606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=Ho9GkIio
-Received: by mail-oi1-f176.google.com with SMTP id 5614622812f47-55650fe1f0dso319419b6e.2
-        for <vhost-user@lists.linux.dev>; Thu, 22 Oct 2026 23:35:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1792737306; cv=none;
-        d=google.com; s=arc-20260327;
-        b=IXmlh6NuaXnZ80nhGPtBCtdB2DFOcmFCrn6pVdwhfqR1yDpil2h5UsxCq2z0S0Mk21
-         D4fh3TMn7Oogpk4c22rB6LVyCiTc18NSGOZquMUO0hHy2FeU+tCMu7vMAqSfYVIVNWqW
-         jWgw+Oggw9pcmYyGk5rDlPKBj3Wr4D9nC7JnWRhNttUsns+zC55xPoPUK4UI28crpUax
-         KOGTBaJYtTjA9YjImRO1pLKjY/iwJuOlpO67Znb34Gr+HfiCM1L0Jc3TrQF52P5ImVLz
-         cFKLtH1yYvgJgW38veNPHV7IG9RqQxyoPJz7qqtUIJssxmzCjVYeUDlhe/6f0NcAa3Cs
-         UVdg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=ZsUNjtEj4RUe68Fi2odqN0bFEItXBMJkpeS0oj9PhNc=;
-        fh=MyPcB0zuDuY1cq7QVdDOuGATqb2ISo/UTD9sFMv0ORo=;
-        b=M4ZU4wnw+oPybsIy6D1fYEkxW2RqR4VWP9vR8opqYCnHmf1MkF6/fOVuJf39aAxqIn
-         yF1QmJQwfvfQKvGQiJaR30G/Lytop4ZyPgz5K8aPG9TaNJO7JMGdjVhdUTY0/DCFEgCQ
-         7idzqADtSeieBglCYU84/Y1jK2gWY9GjEKMKzPXJ8luSLrnCVWcWKrI3pJcUMMH9JcHb
-         0SUqVC7x0bN5UWV5CxqiZvdug/+ukG5kS4XDbpin344fEC/+1K/fKo6IFdQRsEv3XTW5
-         gzp1+rEfxU+NNG6QX5zxMnX5HGx5gm4F/sYC2a7haImHmQ5inR2wxGTipbTLVQOruYDG
-         eNTQ==;
-        darn=lists.linux.dev
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linuxfoundation.org; s=google; t=1792737306; x=1793342106; darn=lists.linux.dev;
-        h=content-type:to:subject:message-id:date:from:mime-version:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=ZsUNjtEj4RUe68Fi2odqN0bFEItXBMJkpeS0oj9PhNc=;
-        b=Ho9GkIioe3edvJMTsoTVR34ZiuQtiPgZw36BioVhthBDI1335ipGg3WVrqmhORONhG
-         pSxPITqSi06ShRnsvTlyDl4UMbkylBMSYEtTXtbS+RWhzxcqJ/+QzOy+yrC9q7/UwSBv
-         RZdcRnM8v73AhBcXFvhXQJG3VWwwhdii7aM8A=
+	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dPWuEZR4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1792772687;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=+wDdcMQ8EY02wA42GqC3QO4nYriHJaInirxC5LhjcR8=;
+	b=dPWuEZR48BBC++VxGZKyvpVQ8GoLgLHbe6Du6mXwkok+1SNsfJVQ9J83Xfy6354Z1hU7Mg
+	tIykOgpOk269Qpsc2nOBqZcpm7eRNi7L/EiCkbJi2Dau6y+HIJikcTnkJNpFZH+OfR6+dE
+	oMwAHmjsbkl+7FKkpWc9WLtKcRUnxJs=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-212-mI6xzSQQNWGO20IRc_YSAw-1; Fri, 23 Oct 2026 12:24:45 -0400
+X-MC-Unique: mI6xzSQQNWGO20IRc_YSAw-1
+X-Mimecast-MFC-AGG-ID: mI6xzSQQNWGO20IRc_YSAw_1792772684
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-48c6a1d4034so987888f8f.0
+        for <vhost-user@lists.linux.dev>; Fri, 23 Oct 2026 09:24:45 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1792737306; x=1793342106;
-        h=content-type:to:subject:message-id:date:from:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ZsUNjtEj4RUe68Fi2odqN0bFEItXBMJkpeS0oj9PhNc=;
-        b=XvC3zL+6xik127/8SvdZsIXRKZTUiAOdXC+9oY724F8TM9ynPMovSppyLbG1+Rssh7
-         8MC1Ay7RbDJTXoqWR2oc/21jJ5CMxph66VGEMc438PmyYpzlHBq16rLbf2dmlipMTPFK
-         q7pevBPOl4p8iBGCIOz+CQ2LD3AvzSbjEYI2wyoqvob9yDyEmAXjq3vq3I3HDF3MdhHM
-         evoZ5U7Ds9hV3V/6M+QHsBJGCuSwvC6v3fcE4PG0o4gFacf8iouhxShZBGehfTXX3Hht
-         s33W3ExrQ/bOkqx6nrFH0F3/F3o86KfgKPeCl5P8GKKMMxHbs3rG70qaAZ5dOfvN2Pm7
-         XyNg==
-X-Gm-Message-State: AFq9FYJtwbSPjinR49dBsjKtNridjHCE3oY6y/6vTZ0Ksy2kwC/u/Q07
-	NvZb/WeFn6pJT8g5Vtf3uYDZYQWKI3Li8pNfH3Xyr6YASS2P8xzmG2oWx0T1WTsCQ9WO+i2rRQs
-	pavaWjZkmKMdGuAZ4rHtAxhyCJX0QRhdQFTi17nRXCPtbti0gHXrmWdBinTuA
-X-Gm-Gg: AYBFou1NFV3c/aA3O7doo8uYpr/P5Ch74SWdiFh2qvXa3BYT+XoXLMxckSSpNcySoxt
-	wRiCRpHLPbtU517LFuR6wIpONd7oYuFfNPi/+VJ3NyeVVvHyFvnoOH2rZ0Yr6XclbKk4W0gRXNK
-	3AIlJIfSkNEqp11fO3MsEflNwnJSwz+6bIy16RMOInDk+X1U1NV7JuqgcKld0BF15OOQgb6UmSD
-	KqnCbjvJ48kfIkAZrUGn+aKsiEBeKfmH1IgNHlVJNz1OzMQlW+8DAwEb+yr5BXgutl5clfQSNs8
-	JV0MzFqhXDPYbN/Mpp6X4hUBJp/BanRq2hLDRz6I9/G30Qrw3ZEUHLzjooBnIf5hxXPR79CrGVp
-	KQyU1UmB/9vqo2S4zfV1K94rK9nnuxqGTaqatC9GhuOD8BBaHKhGKXlAsiLBCJwiOjvk=
-X-Received: by 2002:a05:6808:16a6:b0:4d6:9293:9b56 with SMTP id
- 5614622812f47-55be8641247mr730152b6e.62.1792737305963; Thu, 22 Oct 2026
- 23:35:05 -0700 (PDT)
+        d=1e100.net; s=20260707; t=1792772684; x=1793377484;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+wDdcMQ8EY02wA42GqC3QO4nYriHJaInirxC5LhjcR8=;
+        b=YdJ6QvzL+JP9D4o28UJSDmEExpSHAf7yRh8UyQQJFn5NLbc4oDEhi6OO6IOvQPvE5Q
+         1MHkuXjtxYUjpfomkrEMXizDRKXiDQ8qnBi1gA625/NVSL5p/CZh3ennc2UYyQUYi3Ls
+         ULTEs2Qig5EDChzb15CQt5gVZOzTP2mFqJFyi2XXGkcXekJNjFIfVFih+51eOCnZBh0s
+         DqwStXGX565M4l8DBLL7xL0lIzv5RVrnv9WOXUU/CMlYeOM96jmCmaFv7i7xCS/g3eIP
+         6dqbZpPPpGjtZ+gO9Ta78LklE7Cvi/qURkPopDp5IcBLgC0EC6zm6GiHRt2PtuldAB03
+         Qdow==
+X-Forwarded-Encrypted: i=1; AKwUvBwVrYkAFVdTKPB2gWAfnIR/bbxdm6JFQ7AGNEnZ0LCOt4CqOFroJvjxOjCc4pNIcLZaTeilDiVh8dcD@lists.linux.dev
+X-Gm-Message-State: AFq9FYL93UHRvYvQUb68F6fas/vdZ4y4WKjNqthvMjv6eIgLBRZ5EeAm
+	YN1vyOwzcj4Lc6kqg1E6I+S5654Ic2kBNKfnWyUkTCd6eFg2ovCFE/6k7PzarIck5WNw2j0wBg/
+	t/MFegWBBYdou7v2WZevn08eKYA0/4Df0FP5k+TyjF82C+B+FaZhjGKjdYg1fF5M=
+X-Gm-Gg: AYBFou385EhMnnNQg5VhR+cWAMAMUuuPIiUbHr8Ot5Dlb4w3NEPmKu7y2wDfMx4kOYR
+	0Yjeu5aYLlvIqUdYRDPYIRQ4SxogwZYshJv/DJXq6VtN3VLxL/tGGiGnFL526IAg8GRwbsdwalc
+	YuoKk7xotfb+mbEXM46piux8WZiLPmytYFJOyb4mOfURq+F4gWZji04HL2i9ql9AIOnef8MzeJ+
+	WTUJwcLMGmtdOOhJz1akOXxdnVSD2TaLPdlz5GsP0RYuWgPFxzJj+3rzgzUPYpISZxWFSjrWCj0
+	ALs2QJYmsEbrhukEaETqQcJjZtaPHEwjDb1mME4HTquR2DqWz9CoOAcdiL4OJH8lf8fHNVjHmWg
+	X+rxawQ==
+X-Received: by 2002:a05:6000:4006:b0:48e:824:f0b9 with SMTP id ffacd0b85a97d-48e385ba51amr5083048f8f.45.1792772684442;
+        Fri, 23 Oct 2026 09:24:44 -0700 (PDT)
+X-Received: by 2002:a05:6000:4006:b0:48e:824:f0b9 with SMTP id ffacd0b85a97d-48e385ba51amr5083013f8f.45.1792772683885;
+        Fri, 23 Oct 2026 09:24:43 -0700 (PDT)
+Received: from stex1.redhat.corp ([94.32.46.128])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3d3eefacsm923877f8f.9.2026.10.23.09.24.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 23 Oct 2026 09:24:43 -0700 (PDT)
+From: Stefano Garzarella <sgarzare@redhat.com>
+To: qemu-devel@nongnu.org
+Cc: Dorinda Bassey <dbassey@redhat.com>,
+	Stefan Hajnoczi <stefanha@redhat.com>,
+	Albert Esteve <aesteve@redhat.com>,
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	Stefano Garzarella <sgarzare@redhat.com>,
+	Pierrick Bouvier <pierrick.bouvier@oss.qualcomm.com>,
+	vhost-user@lists.linux.dev
+Subject: [PATCH] vhost-user: add dedicated mailing list
+Date: Fri, 23 Oct 2026 18:24:40 +0200
+Message-ID: <20261023162441.89450-1-sgarzare@redhat.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: vhost-user@lists.linux.dev
 List-Id: <vhost-user.lists.linux.dev>
 List-Post: <mailto:vhost-user@lists.linux.dev>
@@ -96,19 +105,87 @@ List-Unsubscribe: <mailto:vhost-user+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:vhost-user+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-From: Chris Hoy Poy <choypoy@linuxfoundation.org>
-Date: Fri, 23 Oct 2026 14:34:54 +0800
-X-Gm-Features: AclHuK_6yWsYqFF-uCryouKEIl3LaN3iUj23keo7WFL8yoBgIu_tJud1oxGHAug
-Message-ID: <CAKkv+gzxVMqmaJ3ORY9fHN+85uOn7Oq5w=cedBYM=r51PLgbmw@mail.gmail.com>
-Subject: Delivery test - please ignore
-To: vhost-user@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: -QRPhz3pnD__5praixdaSqQrrqribuTh8rBWp_zbos4_1792772684
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-This is a test message to check delivery and start the archive for the
-list. Please ignore.
+From: Stefano Garzarella <sgarzare@redhat.com>
 
-Chris Hoy Poy
-Senior Systems Engineer
-Core Projects
-The Linux Foundation
-Perth, Western Australia (GMT:+8)
+During the "Virtio and Vhost-User Ecosystem for Production and
+Automotive Systems" BoF at LPC 2026 [1] we discussed and agreed on
+creating a new vhost-user mailing list, mainly for changes to the
+specification and discussions around the protocol.
+
+The main reason is that the vhost-user specification is also used
+by other VMMs and implemented by several back-ends outside the QEMU
+repository, whose developers often do not follow qemu-devel.
+
+Add a paragraph in the specification about the new mailing list and
+a dedicated MAINTAINERS entry for the vhost-user protocol, covering
+the specification, the QEMU front-end and libvhost-user (back-end
+library).
+
+[1] https://lpc.events/event/20/contributions/2365/
+
+Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
+---
+ MAINTAINERS                 | 12 ++++++++++--
+ docs/interop/vhost-user.rst |  6 ++++++
+ 2 files changed, 16 insertions(+), 2 deletions(-)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d9209f043f..dcdb65d8cb 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2532,19 +2532,27 @@ M: Michael S. Tsirkin <mst@redhat.com>
+ R: Stefano Garzarella <sgarzare@redhat.com>
+ S: Supported
+ F: hw/*/*vhost*
+-F: docs/interop/vhost-user*
+ F: docs/system/devices/virtio/vhost-user*
+ F: contrib/vhost-user-*/
+ F: backends/*vhost*
+ F: include/system/vhost-user-backend.h
+ F: include/hw/virtio/vhost*
+ F: include/*/vhost*
+-F: subprojects/libvhost-user/
+ F: block/export/vhost-user*
+ F: util/vhost-user-server.c
+ F: net/vhost*
+ F: tests/functional/x86_64/test_vhost_user_bridge.py
+ 
++vhost-user protocol
++M: Michael S. Tsirkin <mst@redhat.com>
++R: Stefano Garzarella <sgarzare@redhat.com>
++L: vhost-user@lists.linux.dev
++S: Supported
++F: docs/interop/vhost-user*
++F: hw/virtio/vhost-user.c
++F: include/hw/virtio/vhost-user.h
++F: subprojects/libvhost-user/
++
+ vhost-shadow-virtqueue
+ R: Eugenio Pérez <eperezma@redhat.com>
+ F: hw/virtio/vhost-shadow-virtqueue.*
+diff --git a/docs/interop/vhost-user.rst b/docs/interop/vhost-user.rst
+index c1e02ff7e9..198ad30f5c 100644
+--- a/docs/interop/vhost-user.rst
++++ b/docs/interop/vhost-user.rst
+@@ -38,6 +38,12 @@ conventions <backend_conventions>`.
+ The *front-end* and *back-end* can be either a client (i.e. connecting) or
+ server (listening) in the socket communication.
+ 
++The protocol is developed and discussed on the `vhost-user mailing list
++<mailto:vhost-user@lists.linux.dev>`_, archived at
++https://lore.kernel.org/vhost-user/. Until October 2026, when this list
++was created, discussions took place on the qemu-devel mailing list,
++archived at https://lore.kernel.org/qemu-devel/.
++
+ Support for platforms other than Linux
+ --------------------------------------
+ 
+-- 
+2.56.0
+
