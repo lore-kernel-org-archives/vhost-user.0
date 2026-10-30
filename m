@@ -1,89 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1793359303;
-	b=IJ2Ujx6VNz3wFaPt4K6necLrUW4LSsKWSVEZ5cUX+pCmNv/NWjyKut6Q+3+AbbmY4Y/s
-	 1fLqimsPUGhYT1XBtOo8AfipXCcXb699gteJWcZcfkiyMPjGNgkDACY3/axydsn0mvm/A
-	 XQe+5CNji+RUrC9pW6p66cCy3StXfkNmfo1reDvVXh0LF/xDsVOEq6LGTr27o1vaSwCh/
-	 8lWftY8GUKveiR7NxmlLbnCgvVtEBe0QRwfoU+grSa92X1QqerqIS2pYCVnhK0DWaifD+
-	 ZV4W/YrrRzvqYldJggE4Zn5xxP/YKzPHcvCA/tW0vq6TcCe68+/2628ijjw1ya1fzLQ==
+	t=1793388885;
+	b=DxNF/L1qCKz8FBsqc1sqU4EN9PzfGv4wsJ7UyitrbYNudMqJyHK/2NSUNOa1409dujBS
+	 JZcfMmQtkNqJv3REb72dkUyEN1+6ibaXrTM19niOcsANolOJqcZVmpb4TRU47fP22p+0t
+	 H8ir5xMgovoro9GUme7vASj1D3UzvG+xTvnMRrxPbXHkIuO/htrjm8R00m1YcLitLr2Cu
+	 vbA0qaMqz+RECGUgsOd+MoaRUA5SJ0s6mTKUG3MZoBwH8uTfkv06X+uAtMbEMG/u2XZYq
+	 1LqmuajxD0Bq+W98rFDXdkg5r7PqyO1HSR8vZ/9cuiIaRTs5jsByWLw0H2DvDTUnklQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1793359303;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=6GoihID3NL4nc1Mkmoc/1/qZ8Kz/J2UXjW1hpXDbIGU=;
-	b=sZhJok4cW0FU0mXfvHPSEUXS3Pakv8IMn2q3oWdCt3NhD8tUHVZs+M//oa/Zu+inkYRs
-	 GONwgVQW39Ra9as+CzRCzpLEFIppDa2KKBW/duSc/Kir6s9SiHApGrc4VtlALqFjm+j9h
-	 vT5FLuOXyMSqF4QsXkV3UFydA5lgouqLRo2qfPdlLdIZ2c37kt1puku9QbbolJj59DGZy
-	 WgQLBosBLTAQUlfQQ6uN12hCufo4+oFzajYYd5aEoR59xHBA/RLLgrGs7OuZnsWbS+PqK
-	 6tWuQk5gJ/7WqcqIRAG/EAjiZUcWNzQZrtaUMyys2xCl3fVW43pSa38N0kpj21SRGvw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1793388885;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:In-Reply-To:X-Scanned-By:
+	 X-Mimecast-MFC-PROC-ID:X-Mimecast-Originator:Content-Type:
+	 Content-Disposition;
+	bh=DULR4CCYUV1xN6KTkQmnXD/WpQALqgE4bpbw1Uku33s=;
+	b=NEBQjrwjUl11hXT14JX+XHQZgh1vQv7ifaXdCYyuSEKft/GruwCzw81FIeHIiZaftE7H
+	 fAdXwpKaRIi3Pg4cETv1lAV6ewIpLATgpo+Onh6hXXtciiFrXYJCA9IJyJnn/Z7F/je4t
+	 /y4Liyf4QNPjjSva/PNV3cb4L3y7Lb/GjKYnX2zzBfjY2HGPN4gKpIraY4DaPGusv0kp0
+	 69jJgQuomU+XoSxG35vNSVhLkxZFDRdAr2SCU8CJJ3CRzYFgUswE/D4IAoEeeDV+PX+qu
+	 q/n9nX58rR8gx00nRJMTk+51Yyutd1JZYbmArBcehxhKCz1WcEflxcjFt7BU1FAPZOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ga+OwC7S;
-	arc=none smtp.remote-ip=209.85.221.53
-Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=gsHZupYI;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7A18606A31C
-	for <vhost-user@lists.linux.dev>; Fri, 30 Oct 2026 11:21:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7A18606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 768B2606A31A
+	for <vhost-user@lists.linux.dev>; Fri, 30 Oct 2026 19:34:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 768B2606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ga+OwC7S
-Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-48b060ec084so315818f8f.0
-        for <vhost-user@lists.linux.dev>; Fri, 30 Oct 2026 04:21:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1793359301; x=1793964101; darn=lists.linux.dev;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6GoihID3NL4nc1Mkmoc/1/qZ8Kz/J2UXjW1hpXDbIGU=;
-        b=Ga+OwC7S1RajpjYCMxYLp02VRXoiSnAJ6uBnczoAecjatMiuXV/3qcyGWn8SsHpTmx
-         bQwfKWLx+UCmyt8VXGkSFbSuCxN3iPNhC+W1K7Qdw4GpNBIYdzrza50SGB+W/J6bOQW4
-         BBA17iD2+cAJYnPKj3DDIYGNpPYbqqyUekmhBBPFfQuIhjHaAVUohTD6WbDpTHdXhl43
-         ykd2sESKxtxeWG8sffut8kfdxWTjK36bJW+oHTJ5D0r1JrZ2tt/rRO4LXSOX2fgB3BYU
-         S10E5Z3g56e8YDAvmLGrVepedsBAfds8Z3mcUBXypvtE7DV3nAUNKFUx7tZszqfvSDjv
-         GIWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793359301; x=1793964101;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6GoihID3NL4nc1Mkmoc/1/qZ8Kz/J2UXjW1hpXDbIGU=;
-        b=OTVOWiQFKvdSHxGMKNUr1kIxUdChd6Sh/EejM2yGfUtEdLQCBby6puyJHdn/egelzR
-         1Ns+6rbgOBF/+I8U3HWH2MzpfoSpLsTbU2qJTIUjFY4MNNdQQ5YuLIy+NL71oBSsPnl8
-         cQcUEEYqHGHhrsHvfvZiB1JDle8u0lZBnZODXfcWuhoEr4ZE5eaHlybyzwS3Dys4O6JW
-         jQWslU+f8eMNbpb6bvpD9svl1J1LuBbajPohMqYB4mD3OfqRJj8Kgw2NBG8YEVvwSWCA
-         ViGTkv8vOEV2w+ZrMtWhl6/Rs/+qX9V+vi+vy5KUI0JHIMN2PW8d9GOYHE547gRNvmn8
-         s6eQ==
-X-Forwarded-Encrypted: i=1; AKwUvBwysEbaqRHohJlBfjDRJSj+99E8GBu4H8siE24dEzONyC3GcbkGOfr36z/QTBJyOMJfAQDbzUBMfy9E@lists.linux.dev
-X-Gm-Message-State: AFq9FYIkJa6rAt4MkTHATvHuW51TVqvEjy3UgmmmdtR0LsUi55NMuzNj
-	pSR5alwD1I1IyAkN/rBJ9izomxDQxAPCZDq+RhUJX1UJP46wuD27QJb7
-X-Gm-Gg: AYBFou1KVANzlHW1l6MZf8vyFzCRZEPAvLVK6//+qqZqXplimWBKkJZ7LwsVdxvwUio
-	oOY9xiJIYE6DIh01l9gqut57ZuOV2IGK8oiYKDKHSF0/sZX3ChB4plaVuni3OI+2Jd7Wnm8DfOU
-	3hYP7VvyLj7EdsRwQzqZNQoWMU5kc+l6cwzyQVc0X4hFc3DV6AB5ZhJiDIaPLLCuF32jcCZfuwc
-	76dNDRV3nG9ctdqf1xxn2WgftgQtICnmNygjaaJ/F9OYyaTKr+/mOxDJeAmTxkTqYSMZd+/doRW
-	wR7fiVhAwt8Wr2X/bWjPBucqGDoLeMCW5HCc1uPL1mlBnwUZTEi3T7GdVgidvL6EMMYcqeT1VvE
-	4yu0TqpINkGdS3QybB6zfk2iP3t8uWCIrFJC7nLbUMFW5PQxCRrR6VsF2mb9UlpiCjanyRC0S3K
-	1XerDJiJYMv7oV5G+eVJFEmas7airWhQHxFa1OoRF/VSwKmE1EmPvc9xY6WvqdqRdPzgFlmB2UE
-	al5dakEs41uoaQqRj3U8GlCfHe67e7wHLwr9tbYyoQXhgaD/1P1BuX3QJoD+WDOLaXoVXp9gxG4
-	rPGRIWYt0Q0g3N0NNyPco5/HYzBv2SA4qcZtpXsMmrzzuqbCDo7t0w3I/oJDEOy9tLBj1C/KB3A
-	QoDLZLBhKgiP759ujRuQEl9058RB+qP0d+fhPfM7jNDsvrIC6AemAfqUCp4lq2A==
-X-Received: by 2002:a05:6000:2f84:b0:48e:e98:8b64 with SMTP id ffacd0b85a97d-48e6e2eb232mr4479528f8f.19.1793359301149;
-        Fri, 30 Oct 2026 04:21:41 -0700 (PDT)
-Received: from tim-m2.local (dynamic-2a02-3100-61d8-3600-98fd-cd98-7ae6-cb49.310.pool.telefonica.de. [2a02:3100:61d8:3600:98fd:cd98:7ae6:cb49])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71a4d3e9sm2893608f8f.6.2026.10.30.04.21.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Oct 2026 04:21:40 -0700 (PDT)
-From: Tim Pambor <timpambor@gmail.com>
-Date: Fri, 30 Oct 2026 12:21:02 +0100
-Subject: [PATCH v2 9/9] contrib/vhost-user-blk: enable it on any POSIX
- system
+	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=gsHZupYI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1793388883;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DULR4CCYUV1xN6KTkQmnXD/WpQALqgE4bpbw1Uku33s=;
+	b=gsHZupYIEtQCVhBjNsu4kCyhLHti+t4kL2njS2xTRCPPeRuRtafZsqgU6Kel4cBrFivlj0
+	NxWtocllysWlOC1u1wDrCmKaLVj2wk0pIBW/WIqhvqM5tvZI+TaEBm0bQAFd4RPR8YUi0K
+	4jrrCGTsX0RcGyYrCq+gNTNEsgcpk5k=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-237-ZJQLZmevNiKuHikQVpllEA-1; Fri,
+ 30 Oct 2026 15:34:35 -0400
+X-MC-Unique: ZJQLZmevNiKuHikQVpllEA-1
+X-Mimecast-MFC-AGG-ID: ZJQLZmevNiKuHikQVpllEA_1793388874
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D9486180067D;
+	Fri, 30 Oct 2026 19:34:33 +0000 (UTC)
+Received: from localhost (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B7F871800677;
+	Fri, 30 Oct 2026 19:34:32 +0000 (UTC)
+Date: Fri, 30 Oct 2026 15:10:54 -0400
+From: Stefan Hajnoczi <stefanha@redhat.com>
+To: Tim Pambor <timpambor@gmail.com>
+Cc: qemu-devel@nongnu.org, "Michael S. Tsirkin" <mst@redhat.com>,
+	Stefano Garzarella <sgarzare@redhat.com>,
+	Daniel =?iso-8859-1?Q?P=2E_Berrang=E9?= <berrange@redhat.com>,
+	=?iso-8859-1?Q?Marc-Andr=E9?= Lureau <marcandre.lureau@redhat.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, Kevin Wolf <kwolf@redhat.com>,
+	Hanna Reitz <hreitz@redhat.com>, Jason Wang <jasowangio@gmail.com>,
+	Pierrick Bouvier <pierrick.bouvier@oss.qualcomm.com>,
+	qemu-block@nongnu.org, Raphael Norwitz <rnorwitz@nvidia.com>,
+	Brad Smith <brad@comstyle.com>, vhost-user@lists.linux.dev,
+	Philippe =?iso-8859-1?Q?Mathieu-Daud=E9?= <philmd@oss.qualcomm.com>
+Subject: Re: [PATCH v2 7/9] vhost-user: enable frontends on any POSIX system
+Message-ID: <20261030191054.GA1686233@shajnocz.csb>
+References: <20261030-vhost-user-posix-v2-0-cda7c17aad13@gmail.com>
+ <20261030-vhost-user-posix-v2-7-cda7c17aad13@gmail.com>
 X-Mailing-List: vhost-user@lists.linux.dev
 List-Id: <vhost-user.lists.linux.dev>
 List-Post: <mailto:vhost-user@lists.linux.dev>
@@ -93,101 +86,33 @@ List-Unsubscribe: <mailto:vhost-user+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:vhost-user+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261030-vhost-user-posix-v2-9-cda7c17aad13@gmail.com>
-References: <20261030-vhost-user-posix-v2-0-cda7c17aad13@gmail.com>
-In-Reply-To: <20261030-vhost-user-posix-v2-0-cda7c17aad13@gmail.com>
-To: qemu-devel@nongnu.org
-Cc: "Michael S. Tsirkin" <mst@redhat.com>, 
- Stefano Garzarella <sgarzare@redhat.com>, 
- =?utf-8?q?Daniel_P=2E_Berrang=C3=A9?= <berrange@redhat.com>, 
- =?utf-8?q?Marc-Andr=C3=A9_Lureau?= <marcandre.lureau@redhat.com>, 
- Paolo Bonzini <pbonzini@redhat.com>, Kevin Wolf <kwolf@redhat.com>, 
- Hanna Reitz <hreitz@redhat.com>, Jason Wang <jasowangio@gmail.com>, 
- Pierrick Bouvier <pierrick.bouvier@oss.qualcomm.com>, qemu-block@nongnu.org, 
- Raphael Norwitz <rnorwitz@nvidia.com>, Brad Smith <brad@comstyle.com>, 
- vhost-user@lists.linux.dev, Tim Pambor <timpambor@gmail.com>, 
- Stefan Hajnoczi <stefanha@redhat.com>, 
- =?utf-8?q?Philippe_Mathieu-Daud=C3=A9?= <philmd@oss.qualcomm.com>
-X-Mailer: b4 0.16.0
+In-Reply-To: <20261030-vhost-user-posix-v2-7-cda7c17aad13@gmail.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-Mimecast-MFC-PROC-ID: ZTyH5I0crELVsJh3aljhcGOLm8j9zgOTGP60ogtC2Is_1793388874
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-From: Stefano Garzarella <sgarzare@redhat.com>
+On Fri, Oct 30, 2026 at 12:21:00PM +0100, Tim Pambor wrote:
+> The vhost-user protocol is not really Linux-specific so let's enable
+> vhost-user frontends for any POSIX system.
+> 
+> vhost_net.c uses VHOST_FILE_UNBIND, which is defined in a Linux specific
+> header. The kernel's VHOST_NET_SET_BACKEND documentation asks to pass
+> fd -1 to unbind, so replace the macro with -1 and drop the include,
+> nothing else in the file needs it. Long-term a constant could be
+> introduced and used for it.
+> 
+> Co-authored-by: Stefano Garzarella <sgarzare@redhat.com>
+> Signed-off-by: Tim Pambor <timpambor@gmail.com>
+> ---
+> Changes in v2:
+> - Replaced VHOST_FILE_UNBIND with -1 and dropped the include
+> ---
+>  hw/block/Kconfig   | 2 +-
+>  hw/net/vhost_net.c | 3 +--
+>  meson.build        | 1 -
+>  3 files changed, 2 insertions(+), 4 deletions(-)
 
-Let's make the code more portable by adding defines from
-block/file-posix.c to support O_DIRECT in other systems (e.g. macOS).
-
-vhost-user-server.c is a dependency, let's enable it for any POSIX
-system.
-
-Acked-by: Stefan Hajnoczi <stefanha@redhat.com>
-Reviewed-by: Philippe Mathieu-Daudé <philmd@linaro.org>
-Tested-by: Philippe Mathieu-Daudé <philmd@linaro.org>
-Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
-Signed-off-by: Tim Pambor <timpambor@gmail.com>
----
- contrib/vhost-user-blk/vhost-user-blk.c | 14 ++++++++++++++
- meson.build                             |  2 --
- util/meson.build                        |  4 +++-
- 3 files changed, 17 insertions(+), 3 deletions(-)
-
-diff --git a/contrib/vhost-user-blk/vhost-user-blk.c b/contrib/vhost-user-blk/vhost-user-blk.c
-index 6cc18a1c04..419ad2a10d 100644
---- a/contrib/vhost-user-blk/vhost-user-blk.c
-+++ b/contrib/vhost-user-blk/vhost-user-blk.c
-@@ -25,6 +25,20 @@
- #include <sys/ioctl.h>
- #endif
- 
-+/* OS X does not have O_DSYNC */
-+#ifndef O_DSYNC
-+#ifdef O_SYNC
-+#define O_DSYNC O_SYNC
-+#elif defined(O_FSYNC)
-+#define O_DSYNC O_FSYNC
-+#endif
-+#endif
-+
-+/* Approximate O_DIRECT with O_DSYNC if O_DIRECT isn't available */
-+#ifndef O_DIRECT
-+#define O_DIRECT O_DSYNC
-+#endif
-+
- enum {
-     VHOST_USER_BLK_MAX_QUEUES = 8,
- };
-diff --git a/meson.build b/meson.build
-index 4f4068e7a7..1250d467a0 100644
---- a/meson.build
-+++ b/meson.build
-@@ -2177,8 +2177,6 @@ osdep_prefix = '''
- '''
- 
- have_vhost_user_blk_server = get_option('vhost_user_blk_server') \
--  .require(host_os == 'linux',
--           error_message: 'vhost_user_blk_server requires linux') \
-   .require(have_vhost_user,
-            error_message: 'vhost_user_blk_server requires vhost-user support') \
-   .disable_auto_if(not have_tools and not have_system) \
-diff --git a/util/meson.build b/util/meson.build
-index fa174c07a5..54ca587362 100644
---- a/util/meson.build
-+++ b/util/meson.build
-@@ -105,10 +105,12 @@ if have_block
-     util_ss.add(files('filemonitor-stub.c'))
-   endif
-   if host_os == 'linux'
--    util_ss.add(files('vhost-user-server.c'), vhost_user)
-     util_ss.add(files('vfio-helpers.c'))
-     util_ss.add(files('chardev_open.c'))
-   endif
-+  if host_os != 'windows'
-+    util_ss.add(files('vhost-user-server.c'), vhost_user)
-+  endif
-   util_ss.add(files('yank.c'))
- endif
- 
-
--- 
-2.55.0
+Reviewed-by: Stefan Hajnoczi <stefanha@redhat.com>
 
