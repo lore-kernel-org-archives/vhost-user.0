@@ -1,101 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1793207803;
-	b=XTTeXzff90w8f/hiYuJ8buhI596jd6gKge7/u7xeIs094/mZWkBXtGdJ53cxVYkeoMeN
-	 zq8Hv1IdJZesIa4SMatEfxK/vzTaiT/hzYXoU986U59vdWYFJTxtltBVcJXGO/s06YkUC
-	 /4Js028TpfW+wvHMw0G1RbT6rgqujESwGBhpQ/ugfpWABUqhcgrVE4+yXJF9pld+DDjFV
-	 9zgQ/lcNA1QdKAgWLPXmYS6LInEl15yDu1FH+kQ3rTU1JAC2+Va1M4ouBalDCTfsQFAF2
-	 I2PSDnEkjB/iRJpaSFZMFI8QwHtBc3gnUtr1x7WzpIaTNjoJt+ym7TArmc1WFCWpLZg==
+	t=1793359292;
+	b=cjxEVhTX9YmF3zQMkI+8wplotr1HJAhd1stTNMjLlIpw0i1lIX9aO459cO+9ReJX1uop
+	 uVHQG+SldxwoE00T+ouq4WCcsgrg1SmOfEcyVwS1bF3TbCMVSfGZ/HnRrG5kXl5dZgL4t
+	 zXHW5SYupIUL+Wn1HcaNahQkeBnY5te4+1+z+03Fxog6bmpZMrCs8461rSSnoZozJ8KOb
+	 5TU3yU6PRDdbw7gkdrsQXCJzJb50b8arCRGg2mMBa5gO1cOlUR3BuCjYj1C6ZOGuzYMJI
+	 NYUkfGjRnF+LxSKYWGUfv7lKaxv4zxgb2UV/h4uyqjY5+JDKjrDAAgrgqVCVliqIwxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1793207803;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:In-Reply-To:X-Mailer:X-Mutt-Fcc:X-Mimecast-Spam-Score:
-	 X-Mimecast-MFC-PROC-ID:X-Mimecast-Originator:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding;
-	bh=dWpOsnChQtr3kRDdC1FT+mgnTXjmcTTbX2EopbWkNRs=;
-	b=Jwo1pZgAi5SrjadzjIgaFrVfbXtcjioFpBphjtJe0cncmSPADRIo5Y0e8qV3CTbn4ggS
-	 jaZiOxz5L0um1Zsrt/GToYRL/qYvsjQD5TRAqbpjrgF11n3iA1+Dh6BJ6Pbs+KtHQaPcF
-	 AA0NlfVZIzW3hPqnE0sfijO686rFJH9c1T+OSpysoRu6maMOlFDNTZlJd7hfN/CzPcoe2
-	 osrs5jfCtZ2y4HBQ441F7GVykvclOB4NRKFhGeoHUAyR35TKUbDqrDNXtIKN+z5u+q5cJ
-	 rnEu0djqjVNOAktScwTLdUwCZfajQwwwBt6rnhkDwRUPo3e7XCr7lGKzr5kjAhT9Yvg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1793359292;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=b/HG26TxZTq1sxK4QqoMzxHAvHSmMQFGYKOqt8YOLVA=;
+	b=fkZ0eWQJKZN6M390PtlHyyke1d4T/PQ1w/oZ5SUSfW3CVcHG1quDXu35M12xjrzhTNW6
+	 AYfT3pw4xIHY4U6cHWtReutK7OrsGdod0EyG5hesi/YAhTp9tOZXw8yADmMCOkWGo7Z1m
+	 e8aR0eCe/yY9UPVgkEPZ9ZQLx8Ht23rs4uWk2CvXzBOe1cMwlCtpMAfa0aKBKkR+hfDR2
+	 7wBFqyZ+q3RTNZNfYPd1to70H1Nha39Kl8pOV97FQhW7Om8FqoJU83rBqdRhNg9hGYMZL
+	 41oPU67QvGjst5IHMihljx1KF+2bHhX6T2N51jgnkfHfj5vkAX4bymrEZ+vtKDOU70g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=L2VmCykM;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pB9I5iuh;
+	arc=none smtp.remote-ip=209.85.221.52
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17DD6606A31A
-	for <vhost-user@lists.linux.dev>; Wed, 28 Oct 2026 17:16:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17DD6606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9329606A31C
+	for <vhost-user@lists.linux.dev>; Fri, 30 Oct 2026 11:21:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9329606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=L2VmCykM
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1793207802;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dWpOsnChQtr3kRDdC1FT+mgnTXjmcTTbX2EopbWkNRs=;
-	b=L2VmCykMdhxz164QaQ6PnSE5iM0h0hKRqx6QTBQOfSw77GdZqlXRTgFGh8RjG56YWSxAp4
-	1feNV2KNnGwsejWDK7LhNE7WzxG2ugkuk8TGrIUXZ+e84IuiGXOGy986AMNdM08KSz/oFM
-	2f7IXcjcwgw5Ou5+KH+cN0pzjTQ3Mus=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-694-zynItV1nPxSyM9p_DK7GIg-1; Wed, 28 Oct 2026 13:16:40 -0400
-X-MC-Unique: zynItV1nPxSyM9p_DK7GIg-1
-X-Mimecast-MFC-AGG-ID: zynItV1nPxSyM9p_DK7GIg_1793207799
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-48e1291432aso902077f8f.2
-        for <vhost-user@lists.linux.dev>; Wed, 28 Oct 2026 10:16:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1793207799; x=1793812599;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pB9I5iuh
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-48e10a70540so362391f8f.1
+        for <vhost-user@lists.linux.dev>; Fri, 30 Oct 2026 04:21:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1793359290; x=1793964090; darn=lists.linux.dev;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=dWpOsnChQtr3kRDdC1FT+mgnTXjmcTTbX2EopbWkNRs=;
-        b=pbePN5S7g5f3tBU4xlwGw898dwRAcR/SfXSuRz1CFiZxSS6z2K4o8L0YRFPWfviK6U
-         0abJfUeWkKgH3ad/KPg713hrFdsaNAqBHQcrbx0nGhLTaGSXfbNgaX/RZGpix3yJjBsV
-         bge9qM1Ixqgbk/9Wg6xpS/Dt4DBQSQH6Uk5v3rRXwNia3RXaS1s01lvs7CS6Xh925WLc
-         7/5qg0HxDYCN2nmwUHcnz/eJxq+mwK6gohRC0WiH8Hn59uIy4kcNp0/6DA+S9gVLiVd9
-         E7KDOCtONNPR9yOVJS4jwlewrf27TorIjZVUEsDzuTJ9ivbjmuFqO5/O6/r8+abxophh
-         nVlQ==
-X-Forwarded-Encrypted: i=1; AKwUvBzpAErfzX9NnxBSW+cvMlX6/xWP48fQzdWRONQuB9FkyWoPWLrC8Ftt5UNkHT4dtLUCT/2/aXURHGrM@lists.linux.dev
-X-Gm-Message-State: AFq9FYLmqrvsKJa032npv+qkjC0DPAHh1XSlkxP6yggt2jwpVw3wFOng
-	yg2vqcDzS5t9SVziY1y+cgm6jLogCRG14FZqrNDOcB+ysQZqhVufuSMcA8AEKPsTVQi8CnblE2p
-	B7tEkhiYBMt+36aCf3Vna1TQy3Xy1+m7kfPAFctx2s0tMx1rUt1uq6CXZ/Sx0FYw=
-X-Gm-Gg: AYBFou1i8tDY2hR8fhRBirFl3NkVGDCXv2b2v+YEofgz/2T9Ni7yrMCvUIaUZJrDy53
-	ehdFO2D0brVa+E8kBQlfXJECEeJ3uu+FfIvQu1Mp8l1E/CfOkGjAYKhnrYZZ5DU8ks/Uo5/a9kp
-	MV2qa9W4S77J9d+QC8qIFDspXEZUmgpwoG6OOSD9RTBvkMJEcdCJMix21wJ+CBRCGYLGKBVOTb8
-	52IDlGsSrEXjH5cPVpOu4EkTNAsdEMrnnYHrylPNaGcE+Fh2RfZ6EOQp7oqeF1+1rfGZAHNUts7
-	LbE/PHLX8h8wqGVZM8QyKXKPMYh7/+i+ihjaX9iUIxWGmpzcXFlkMSBQjAqAN+0KyQWdW8h1WWf
-	cNg17xZfkh3J5OKwlSamrWZsa6sQ0thubsPl50yEL
-X-Received: by 2002:a05:6000:4553:b0:48a:f0cd:8712 with SMTP id ffacd0b85a97d-48e5d5e26a6mr5110946f8f.50.1793207799283;
-        Wed, 28 Oct 2026 10:16:39 -0700 (PDT)
-X-Received: by 2002:a05:6000:4553:b0:48a:f0cd:8712 with SMTP id ffacd0b85a97d-48e5d5e26a6mr5110895f8f.50.1793207798667;
-        Wed, 28 Oct 2026 10:16:38 -0700 (PDT)
-Received: from redhat.com ([2a0d:6fc0:1536:fc00:b838:383:1c7:6e81])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e3ebc4d76sm30009609f8f.12.2026.10.28.10.16.37
+        bh=b/HG26TxZTq1sxK4QqoMzxHAvHSmMQFGYKOqt8YOLVA=;
+        b=pB9I5iuhZo83ThqT5YZOXKhYLOclQ0Lj4bLBFJyzQQqG6/uF9rP/t0OzYMjIZBQNi0
+         O1N08FOFHpG5/Sobq9jkC/vVHKdo22YdXxwq3bJF6F7Di05nFa34ELjV61ODHM02I26B
+         zwfFZzrWAC0XCmBBgNSufRpGgPw+xdJtFBJgTjGhYfrF32sLFhEc6jyAbaS+tRdbJAk3
+         4LwCOQGipIli8P53Dow7cFuo2Unfy5dqT0VWgAzJYJng8l1K3R+uBF3VULnQFP5qBWmo
+         PuBBkUyRQ8cg2zemYEN3NCSdo3f8DzmZjmmSO/NktFKv3xhjI0q8L0HXTdVgcQ59NmBg
+         BRPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1793359290; x=1793964090;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=b/HG26TxZTq1sxK4QqoMzxHAvHSmMQFGYKOqt8YOLVA=;
+        b=YO3WjdeTeVoS3WZwEOqdDoED+Lfw8KxSmjL/Ex/XmxKj0mlbcHYXWbwGVMHyTS4+AT
+         8u9KrIp3oL1IGBkWIBvuQ5kJf92bs6wR1QYMqpH5gH65zBIrOz7+72lly5i1g48uzQKR
+         +g20DZdP5Il2J64uricyW8OXvH12KCkiwpgi25Im0DSXTEY87GX9dL8Erpb4qbWE+g07
+         HAvtUuXhqWQ2ZlpkXrEF6Jg6tvtS806gUGm62QpHe3QeTkrIDbkd4b6McCHCaJp6+jgd
+         RHYPwODRHG2EEO9UsRUzdYGcoPtUxO0/xOgTLm+t+VNTk070/huTPtZdwqD+ORh+ocNw
+         Khyw==
+X-Forwarded-Encrypted: i=1; AKwUvBwJz37Czs/4iq8g4J9mAf9sgmb5W00YEUmd+m4Oy6/Asx9/2QPa2aa88570mP1JHEcEpEiTIK0H6Jup@lists.linux.dev
+X-Gm-Message-State: AFq9FYJALp8ErsUn6y+4bN5Fck580U4XOCxPacfv6mBfBSSzRJQoThIV
+	I7Wz5ndUePNoAe7U9c/x7T0WpxRzob5bEVxFdoYXIcj/N9C+SROkL2+5
+X-Gm-Gg: AYBFou1J8kAj70jx+wCY6vPWtyxVQfivY3v9Q4EPpEigksAQTujRMX45X8E9Gx1hmiW
+	Z08kH9r1csY7BuQZDX7gvsRkATUDOcSpsSJwbd+uYXeYVtYFmyCbJr0Tn3Rl+LPy1xyS5XKlekW
+	kA/v2iFdQRvf4lWJYriHvFCA54sdnB+k1K3IqiM7nU/0SxJ/6WvOoFB7Fzw5GNuDs2J8sgvWTJ5
+	J57bXmpLMhrwer+KkJxO+i0y+hUMYHheoBjT7339sr6DbVY3xwiyB6WsP8qav5sXEPxzvO+OHpW
+	Mx2QNIjCKPg2fbHwskrKZ+NnzH58ONQDRgbITp8u2l5j3GxnFIASTl4SXkZUcsv2g7zu0VmUKdT
+	nX+mm2RNMnJ9p4xUUI021N7iSjqZERiL9oYNEO7RfIKG2ElzGNyRuWV4gi15cMUledBsQIwVlrB
+	Z1U21RFEtaHsuHfA4/chHivln5K++RG7WptL43VkDFf2ZmsxRelY6svJXyFw7l7X4TsFXwfpwOw
+	OPTWqeJyPz6J04d7d8KF3W6TaBzFNN6nyeHt8ylTQA2zCm+gMwtwkpBs3+T9ftyeCGVYwVfZ4Op
+	uJ8ILbYynKZ4dT4SZUn85kfr+FEfuvNo90jEd3t69lm7YPPIq6RsiFrs0wd/EcnH/UDlDzcbA7B
+	LPAbCPQV8H9gi9TSstyU/6LPBsL0uXErAn5tnyYd02lhP7Jee9s7xxdi2f2XAOg==
+X-Received: by 2002:a5d:4ec6:0:b0:48c:7143:610c with SMTP id ffacd0b85a97d-48e6e3091c8mr3797943f8f.36.1793359289998;
+        Fri, 30 Oct 2026 04:21:29 -0700 (PDT)
+Received: from tim-m2.local (dynamic-2a02-3100-61d8-3600-98fd-cd98-7ae6-cb49.310.pool.telefonica.de. [2a02:3100:61d8:3600:98fd:cd98:7ae6:cb49])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48e71a4d3e9sm2893608f8f.6.2026.10.30.04.21.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Oct 2026 10:16:37 -0700 (PDT)
-Date: Wed, 28 Oct 2026 13:16:36 -0400
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: qemu-devel@nongnu.org
-Cc: Peter Maydell <peter.maydell@linaro.org>,
-	Stefano Garzarella <sgarzare@redhat.com>,
-	Pierrick Bouvier <pierrick.bouvier@oss.qualcomm.com>,
-	vhost-user@lists.linux.dev
-Subject: [PULL 60/78] vhost-user: add dedicated mailing list
-Message-ID: <f5992d68d3dff73e17f65264d5e443ac40d546ad.1793207602.git.mst@redhat.com>
-References: <cover.1793207602.git.mst@redhat.com>
+        Fri, 30 Oct 2026 04:21:29 -0700 (PDT)
+From: Tim Pambor <timpambor@gmail.com>
+Subject: [PATCH v2 0/9] vhost-user: another try at supporting any POSIX
+ system
+Date: Fri, 30 Oct 2026 12:20:53 +0100
+Message-Id: <20261030-vhost-user-posix-v2-0-cda7c17aad13@gmail.com>
 X-Mailing-List: vhost-user@lists.linux.dev
 List-Id: <vhost-user.lists.linux.dev>
 List-Post: <mailto:vhost-user@lists.linux.dev>
@@ -105,94 +93,125 @@ List-Unsubscribe: <mailto:vhost-user+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:vhost-user+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-In-Reply-To: <cover.1793207602.git.mst@redhat.com>
-X-Mailer: git-send-email 2.51.2.2891.g4157995a80.dirty
-X-Mutt-Fcc: =sent
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: hZDJ1-H35-YJ-LgmipD5doXHVtrYjhals6nkL3IGf-0_1793207799
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NQQ6CMBBFr0JmbU1bQYIr72FYlHaEMUJJBxoM4
+ e4W3Lt8yfvvr8AYCBlu2QoBIzH5IYE+ZWA7M7QoyCUGLfVVSa1F7DxPYk4zMXqmRWDZVFVlTFk
+ oB2k2BnzSciQf9Y95bl5op72zGx3x5MPn+Ixq9/7koxJSyMblLi+k0xd7b3tD77P1PdTbtn0BK
+ Vm6iMIAAAA=
+X-Change-ID: 20261022-vhost-user-posix-e7b999aa751d
+To: qemu-devel@nongnu.org
+Cc: "Michael S. Tsirkin" <mst@redhat.com>, 
+ Stefano Garzarella <sgarzare@redhat.com>, 
+ =?utf-8?q?Daniel_P=2E_Berrang=C3=A9?= <berrange@redhat.com>, 
+ =?utf-8?q?Marc-Andr=C3=A9_Lureau?= <marcandre.lureau@redhat.com>, 
+ Paolo Bonzini <pbonzini@redhat.com>, Kevin Wolf <kwolf@redhat.com>, 
+ Hanna Reitz <hreitz@redhat.com>, Jason Wang <jasowangio@gmail.com>, 
+ Pierrick Bouvier <pierrick.bouvier@oss.qualcomm.com>, qemu-block@nongnu.org, 
+ Raphael Norwitz <rnorwitz@nvidia.com>, Brad Smith <brad@comstyle.com>, 
+ vhost-user@lists.linux.dev, Tim Pambor <timpambor@gmail.com>, 
+ Stefan Hajnoczi <stefanha@redhat.com>, 
+ =?utf-8?q?Philippe_Mathieu-Daud=C3=A9?= <philmd@oss.qualcomm.com>
+X-Mailer: b4 0.16.0
 
-From: Stefano Garzarella <sgarzare@redhat.com>
+This series continues the work started by Stefano [1] to add support
+for any POSIX system to vhost-user.
 
-During the "Virtio and Vhost-User Ecosystem for Production and
-Automotive Systems" BoF at LPC 2026 [1] we discussed and agreed on
-creating a new vhost-user mailing list, mainly for changes to the
-specification and discussions around the protocol.
+Three patches from his original series were never applied due to failing
+tests [2]. I was able to reproduce these test failures on current master.
 
-The main reason is that the vhost-user specification is also used
-by other VMMs and implemented by several back-ends outside the QEMU
-repository, whose developers often do not follow qemu-devel.
+Patch 6 contains a fix for this problem. Patches 1-5 fix further issues I
+came across while testing, mostly on macOS. Patches 7-9 are the three
+patches from Stefano's series; patch 7 drops VHOST_FILE_UNBIND as
+discussed in v1, the other two are unmodified.
 
-Add a paragraph in the specification about the new mailing list and
-a dedicated MAINTAINERS entry for the vhost-user protocol, covering
-the specification, the QEMU front-end and libvhost-user (back-end
-library).
+I have tested this patch series on Ubuntu 24.04, macOS 15, FreeBSD 14.2
+and OpenBSD 7.7. On all platforms the tests are now passing. In addition,
+on these platforms I have tested successfully booting a Fedora image with
 
-[1] https://lpc.events/event/20/contributions/2365/
+  qemu-storage-daemon \
+    --blockdev file,filename=Fedora-Cloud-Base-Generic-44-1.7.x86_64.qcow2,node-name=file \
+    --blockdev qcow2,file=file,node-name=qcow2 \
+    --export vhost-user-blk,addr.type=unix,addr.path=/tmp/vhost.socket,id=vub,num-queues=1,node-name=qcow2,writable=on
 
-Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
-Reviewed-by: Michael S. Tsirkin <mst@redhat.com>
-Signed-off-by: Michael S. Tsirkin <mst@redhat.com>
-Message-ID: <20261023162441.89450-1-sgarzare@redhat.com>
+  qemu-system-x86_64 -smp 2 -M q35,memory-backend=mem \
+    -object memory-backend-shm,id=mem,size="512M" \
+    -device vhost-user-blk-pci,num-queues=1,chardev=char0 \
+    -chardev socket,id=char0,path=/tmp/vhost.socket
+
+Full CI run: https://gitlab.com/tpambor/qemu/-/pipelines/3007880563
+
+[1] https://lore.kernel.org/all/20240618100043.144657-1-sgarzare@redhat.com/
+[2] https://lore.kernel.org/all/suvpzkb3ppdodjdyo5zcpngz5mwrrlq3nfowemh4tqjghbc4si@hzrsr23fganv/
+
+Signed-off-by: Tim Pambor <timpambor@gmail.com>
 ---
- MAINTAINERS                 | 12 ++++++++++--
- docs/interop/vhost-user.rst |  6 ++++++
- 2 files changed, 16 insertions(+), 2 deletions(-)
+Changes in v2:
+- Moved "libvhost-user: detect memfd support with a link test" to the
+  front of the series.
+- Added "libvhost-user: detect eventfd support with a link test".
+- Replaced the library-owned self-kick notifier in libvhost-user with a
+  per-ring flag; the handlers of started rings now run at the end of
+  vu_dispatch(), after the reply has been sent.
+- Dropped "io/channel-socket: only clear O_NONBLOCK on received fds if
+  set" and instead reimplemented qemu_set_blocking() with fcntl(), so
+  F_SETFL is only issued when O_NONBLOCK actually changes.
+- vhost_net.c: replaced VHOST_FILE_UNBIND with -1 and dropped the
+  Linux header include instead of defining the constant for other
+  systems.
+- Added a comment and an assert to "vhost-user: kick via
+  event_notifier_set()".
+- New CI run: https://gitlab.com/tpambor/qemu/-/pipelines/3007880563
+- Link to v1: https://lore.kernel.org/qemu-devel/20261022-vhost-user-posix-v1-0-0bd4d450d23c@gmail.com
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index d7ec12ac39..04842adba6 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2544,19 +2544,27 @@ M: Michael S. Tsirkin <mst@redhat.com>
- R: Stefano Garzarella <sgarzare@redhat.com>
- S: Supported
- F: hw/*/*vhost*
--F: docs/interop/vhost-user*
- F: docs/system/devices/virtio/vhost-user*
- F: contrib/vhost-user-*/
- F: backends/*vhost*
- F: include/system/vhost-user-backend.h
- F: include/hw/virtio/vhost*
- F: include/*/vhost*
--F: subprojects/libvhost-user/
- F: block/export/vhost-user*
- F: util/vhost-user-server.c
- F: net/vhost*
- F: tests/functional/x86_64/test_vhost_user_bridge.py
- 
-+vhost-user protocol
-+M: Michael S. Tsirkin <mst@redhat.com>
-+R: Stefano Garzarella <sgarzare@redhat.com>
-+L: vhost-user@lists.linux.dev
-+S: Supported
-+F: docs/interop/vhost-user*
-+F: hw/virtio/vhost-user.c
-+F: include/hw/virtio/vhost-user.h
-+F: subprojects/libvhost-user/
-+
- vhost-shadow-virtqueue
- R: Eugenio Pérez <eperezma@redhat.com>
- F: hw/virtio/vhost-shadow-virtqueue.*
-diff --git a/docs/interop/vhost-user.rst b/docs/interop/vhost-user.rst
-index 488214a306..c31a75def3 100644
---- a/docs/interop/vhost-user.rst
-+++ b/docs/interop/vhost-user.rst
-@@ -38,6 +38,12 @@ conventions <backend_conventions>`.
- The *front-end* and *back-end* can be either a client (i.e. connecting) or
- server (listening) in the socket communication.
- 
-+The protocol is developed and discussed on the `vhost-user mailing list
-+<mailto:vhost-user@lists.linux.dev>`_, archived at
-+https://lore.kernel.org/vhost-user/. Until October 2026, when this list
-+was created, discussions took place on the qemu-devel mailing list,
-+archived at https://lore.kernel.org/qemu-devel/.
-+
- Support for platforms other than Linux
- --------------------------------------
- 
--- 
-MST
+To: qemu-devel@nongnu.org
+Cc: "Michael S. Tsirkin" <mst@redhat.com>
+Cc: Stefano Garzarella <sgarzare@redhat.com>
+Cc: "Daniel P. Berrangé" <berrange@redhat.com>
+Cc: Marc-André Lureau <marcandre.lureau@redhat.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Kevin Wolf <kwolf@redhat.com>
+Cc: Hanna Reitz <hreitz@redhat.com>
+Cc: Jason Wang <jasowangio@gmail.com>
+Cc: Pierrick Bouvier <pierrick.bouvier@oss.qualcomm.com>
+Cc: qemu-block@nongnu.org
+Cc: Raphael Norwitz <rnorwitz@nvidia.com>
+Cc: Brad Smith <brad@comstyle.com>
+Cc: vhost-user@lists.linux.dev
+Cc: Philippe Mathieu-Daudé <philmd@linaro.org>
+Cc: Stefan Hajnoczi <stefanha@redhat.com>
+
+---
+Stefano Garzarella (2):
+      libvhost-user: enable it on any POSIX system
+      contrib/vhost-user-blk: enable it on any POSIX system
+
+Tim Pambor (7):
+      libvhost-user: detect memfd support with a link test
+      libvhost-user: detect eventfd support with a link test
+      vhost-user: kick via event_notifier_set()
+      libvhost-user: run handlers of started rings after the reply
+      util/oslib-posix: implement qemu_set_blocking() with fcntl()
+      chardev/char-socket: detect peer close portably
+      vhost-user: enable frontends on any POSIX system
+
+ chardev/char-socket.c                     |  78 +++++++++++++++-----
+ contrib/vhost-user-blk/vhost-user-blk.c   |  14 ++++
+ hw/block/Kconfig                          |   2 +-
+ hw/net/vhost_net.c                        |   3 +-
+ hw/virtio/vhost-user.c                    |  19 ++---
+ meson.build                               |   5 +-
+ subprojects/libvhost-user/libvhost-user.c | 118 ++++++++++++++++++++++++------
+ subprojects/libvhost-user/libvhost-user.h |   3 +-
+ subprojects/libvhost-user/meson.build     |  17 ++++-
+ util/meson.build                          |   4 +-
+ util/oslib-posix.c                        |  26 +++++--
+ 11 files changed, 221 insertions(+), 68 deletions(-)
+---
+base-commit: a19f59a72d96056d9a8f48cf6c77f5787491e414
+change-id: 20261022-vhost-user-posix-e7b999aa751d
+
+Best regards,
+--  
+Tim Pambor <timpambor@gmail.com>
 
