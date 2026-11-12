@@ -1,98 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.145.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794508954;
-	b=dI4kHDIHR8CTQN+wHnLgUQBXULLpQ26IcEh2DvN0OmRV9lFM0gthtuBvy6eaJaRsysOk
-	 DmfbQLzQOqisH2ovQthIPdzaTmICZWEQNthAQg0scGZkebrOVDnBrnvs/bpgXo4x2Uvow
-	 whr8U6caLbrwod591lxrxZtHZYRYtTpdF6v02CnxjmEk/bYLAU3hRJchrXjxxPD/JJOUX
-	 av/OvW8tPDoDlJ3+Ul9KRhTwUHRrgHQMDyilWUg8U2bIy3Au6mt2qOnyYg0R4iEA4iSHX
-	 i/Jc2wW2E1Ymsp4DCREZx41yvPFKJxRt2ZXLnIW8FFy96lm9oxTKJB7SpTnwhM1c2eQ==
+	t=1794523148;
+	b=bPaSyzchza/Z/1xRPk4wTjWJWu97CAqJPZ/xJKueNyoRWHdeCACYzPYphQHy7ixHtpcH
+	 jH/c0tQIL6a6Bi6BNEnsrCI2oB2ifFcems0k+o9iI1gf70lHBFb/4OsJnzqt6x4j2z+cx
+	 RNu70if1H7ENS8K/X2wRZjwQaPGDZGNnVbREoho/rbQnHMYJbPrJFivtg7uL6pFGJylDs
+	 4/mU4c4HbqtjauxIXUPP/xy5RNDvz6Z7vWRjNukaVcloV1dGIubaFtaIf4y6g6V5RPSZi
+	 3YEkuwDyP5fRtk6Xa8L8aOD6iMXAuYjUKvAIwys0go/aoWqK/BTo5dozecGxlWojC4Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794508954;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:In-Reply-To:X-Mimecast-Spam-Score:X-Mimecast-MFC-PROC-ID:
-	 X-Mimecast-Originator:Content-Type:Content-Disposition;
-	bh=A3++6SSdAWARjbTLG3hk+lQQ7aiEgqNJA3N4D+HfgX0=;
-	b=qQILYYb9zyL0I7VLM7k+vh3bujyx++wCN+fbsAPzVJdZ56UGRVmOOhtiWft7DkOAj//O
-	 It52r1xqVjKkWkUfE7PRyzwnsvzq3KRXb71xKC0i9uJPS2LtF8nFvV7OalXYX5/Bak7lo
-	 sascOvlJ+YN7r6lRLEYUVc0hotZEgQ9PROU5Uw2uPoE/3Iy+G4W0/5ugmpcVRJ94Fl8Il
-	 hyoUEyRhbDxsx9l0+vUhMaqRXNWdEnIaSfj26sCoeF/GYoTUsvGlpBx3Oo3kiZjZzPLar
-	 Ltwt0sYfeN/mAdTqnoZZ/HS1rZgsqrP0VZ4exiNmjBEGiMTYO23sdU/mad9GsXr2AEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794523148;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-ID:X-B4-Tracking:X-Change-ID:To:CC:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Originating-IP:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version;
+	bh=xI9HUMEq+Bki2kYd3I9HK9gGm5POQNl7FWP7xp7MQ0s=;
+	b=auPYV4eiStDawEX14oJuyKzXdHBYi01CiMrSTDmf2/yjQTrubN9iI7svGsi+7a6Z3Uw+
+	 /BTWf3EptpYZGLNmcwj7b9BkdCN5e4ag6TwjMpZoTnEg0+J56FJkByBsBWypQKYWttezV
+	 eoZsL3wb/yWpgVHdgpYQREmzPA4BPCrB1boQpAHTTTuChWjtTrJwiRmGOBA07TYnGaj60
+	 S+9ryFKyzzwWbQHnUgjzM1NoL157UzPTjS7P9WO2MMbLhTOZktIAcNQy0PE6XhRU3P7wF
+	 f89mbR5G32vib5gGbGvUnXTQJlGkp6M+wW2dmdWSev1k62JuqiW6HaVUDaqN4vCo3jA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=aTVT5gKq;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=WsNsqdZF;
+	arc=none smtp.remote-ip=67.231.145.42
+Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FBC3606A321
-	for <vhost-user@lists.linux.dev>; Thu, 12 Nov 2026 18:42:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FBC3606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B77A8606A31C
+	for <vhost-user@lists.linux.dev>; Thu, 12 Nov 2026 22:39:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B77A8606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=aTVT5gKq
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1794508953;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=A3++6SSdAWARjbTLG3hk+lQQ7aiEgqNJA3N4D+HfgX0=;
-	b=aTVT5gKqoFT+9mxuodV+9EBFchlIpNOuTy6qSNV91LWBhhrK1miFrlJh8ak0dd/R1ySQ/v
-	PEnYa23zMZ4pQrD/HPeNG0j6o9JCGibSVGgmigTNP5CkI2tpn5D7Nefas6JcWCXx5Lu9wR
-	yH/P8LlhZ+6nAKOMVg6CpA17/0l8vY4=
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com
- [209.85.215.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-626-esBI-hRLMIalxolJdF-hjQ-1; Thu, 12 Nov 2026 13:42:31 -0500
-X-MC-Unique: esBI-hRLMIalxolJdF-hjQ-1
-X-Mimecast-MFC-AGG-ID: esBI-hRLMIalxolJdF-hjQ_1794508951
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cd652c0385bso93909a12.2
-        for <vhost-user@lists.linux.dev>; Thu, 12 Nov 2026 10:42:31 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794508951; x=1795113751;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=A3++6SSdAWARjbTLG3hk+lQQ7aiEgqNJA3N4D+HfgX0=;
-        b=jzCZp7+0oJb8ihcyNyDEI6z7Hj5q1z2OdfUlYeosLZHDhg/8o84BRSDIlI7HfTcKSX
-         +onfti0tw3hxqTelE9qSJ5yNH5rnr3e2DDdHLADa3aAlHXgse8I4ZUgNHA1hOYeo0XcO
-         tKWfZfKubOv1umx96+hlYVP87OyTmv7OwaAFQ5sfOe4kKkZVuY1tce44FMh3A4V/Xyz6
-         YN7fBPDgxbm3Xa+kL9t8saNhbBgdd/CFU6t6OUBFjLBmI9/YMaSlpGmqKnWz6CCj5RJe
-         BBXbtRwYfNwdfXSBx8kVCeIlOupB3aLKScOs7uOBJh7OyVorFpBJEZdvrKNBiCIrRXK7
-         VEeA==
-X-Forwarded-Encrypted: i=1; AL+hErGjltGidefP/koQsD7xQ+qJ1AhEfugJ+Mx+aOKdxmdLKV9WDq318DYmflR1x6i0aBGHiGnuJxgSxt7m@lists.linux.dev
-X-Gm-Message-State: APuU4Z+Ul7GQ+X5Kh2aziXtsbabsvi2iIgCrKPaXM/f0DGc+E/kCWQDu
-	0mJYto708zh/2SCANNtzjMf2fSzdS+5K1shUsQeOLXk1xz6ELPpr/P3ue4fIrrMeBBT8Gaf5JgP
-	uY0OElVe9KpW1k+m+aWB+ZKcMM9ztI5nxn525DgNKoeALBDaRljO3Wz4Au4TSiw0=
-X-Gm-Gg: AYBFou0bFDP0+pZlxIpCHRDQWB6sUMaHdDiAtF2SbsiO2IYK5oudPdYjVcGF6d2D1S4
-	8Uo9DiGFmCkFDdqrA8yz338B1YnSGcGCtbjJUmLLfffu+xn1FswlxvggyQ+zgdYQhifzyXV6lt5
-	yqb5151o2815qn7idKMEwKWAUAY55hd97BinXIDqnRodhYIr8dOAcjK3kWzuhNh59hAurq5mbch
-	0jFryh2gbif+kssHPMw0m1WA3vMRj5e0OkebkojWtET1A8PruSFSEewHRMssbYmsuiGQEUX8zgB
-	XtvSQEexX81u8qqzP5mFeMdZKCJu7yRciKNWmaIXckjj6VX1cfc8/7PR0X2LkaHNXmjVmwqrJoj
-	cwLgQTvj1I1oL4kgQOxzSvBSIrPN7oNI3qbaXQgV2j0LEp9dwlS0U
-X-Received: by 2002:a17:90b:3c83:b0:3ac:a993:5b5c with SMTP id 98e67ed59e1d1-3b1b081b573mr652a91.6.1794508950606;
-        Thu, 12 Nov 2026 10:42:30 -0800 (PST)
-X-Received: by 2002:a17:90b:3c83:b0:3ac:a993:5b5c with SMTP id 98e67ed59e1d1-3b1b081b573mr637a91.6.1794508950030;
-        Thu, 12 Nov 2026 10:42:30 -0800 (PST)
-Received: from sgarzare-redhat ([69.196.88.181])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b1ae981c55sm584343a91.1.2026.11.12.10.42.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Nov 2026 10:42:29 -0800 (PST)
-Date: Thu, 12 Nov 2026 19:42:22 +0100
-From: Stefano Garzarella <sgarzare@redhat.com>
-To: Simon Lucido <simonlucido@meta.com>
-Cc: qemu-devel@nongnu.org, "Michael S. Tsirkin" <mst@redhat.com>, 
-	vhost-user@lists.linux.dev
-Subject: Re: [PATCH] libvhost-user: return the backend address in
+	dkim=pass (2048-bit key, unprotected) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=WsNsqdZF
+Received: from pps.filterd (m0109334.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ACJcieL303144;
+	Thu, 12 Nov 2026 14:39:07 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=pps82601-s2048-2026-q3; bh=xI9HUMEq+
+	Bki2kYd3I9HK9gGm5POQNl7FWP7xp7MQ0s=; b=WsNsqdZFwE8RaLKnSLatfrmCU
+	ZKVVy7gdCp7nzGTFmTHAVaHbhu+G2HAZr6fURQE/xDsq0wQaX/v0qlNIoMrXIt00
+	NzX9r6W96PHEwH1WisjBYqKKM5AkTPMNIrVaQvWUBuZtbyWtQ0LcYN8abaMDoSYv
+	YAGJpoEbJdejucevf3p7+1h+cS7r575D3bIz7uM+ZA2hnyKgPkf254pToSLefJ5p
+	LrYRKUgj9MLlqG/FfdnnMopRYthRQ69CyDPAYWNpXYliSFwoRs2Kr7srf5Jqyhnu
+	ds54EN1w8977mc+FfHpbDYtqkYucvNNt3xNw8Lomg/3/iWAb5rWYOg9GKBj/A==
+Received: from maileast.thefacebook.com ([163.114.135.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4hwfwd3hfr-2
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Thu, 12 Nov 2026 14:39:06 -0800 (PST)
+Received: from localhost (2620:10d:c0a8:1b::30) by mail.thefacebook.com
+ (2620:10d:c0a9:6f::8fd4) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Thu, 12 Nov
+ 2026 22:39:05 +0000
+From: Simon Lucido <simonlucido@meta.com>
+Date: Thu, 12 Nov 2026 23:38:46 +0100
+Subject: [PATCH v2] libvhost-user: return the backend mapping address for
  SET_MEM_TABLE
-Message-ID: <avYHUgnTmWUiA1Qy@sgarzare-redhat>
-References: <20261109-setmemtable-fix-v1-1-00fa83a0c6fb@meta.com>
 X-Mailing-List: vhost-user@lists.linux.dev
 List-Id: <vhost-user.lists.linux.dev>
 List-Post: <mailto:vhost-user@lists.linux.dev>
@@ -102,60 +70,108 @@ List-Unsubscribe: <mailto:vhost-user+unsubscribe@lists.linux.dev>
 List-Owner: <mailto:vhost-user+owner@lists.linux.dev>
 Precedence: list
 MIME-Version: 1.0
-In-Reply-To: <20261109-setmemtable-fix-v1-1-00fa83a0c6fb@meta.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: cvPpVDXZHTVcPTBnQelYV3S_w2k9SgY8QqdLa8T_WaY_1794508951
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20261112-setmemtable-fix-v2-1-b38ee27e8f19@meta.com>
+X-B4-Tracking: v=1; b=H4sIAPU/9moC/3WNyw7CIBREf6W5azGAprau/A/TBY+LxUgxgETT8
+ O9CXbs8k5kzK0QMFiOcuxUCZhutXyrwXQdqFssNidWVgVPeM0ZHEjE5dEnIBxJj30SPw5EZrin
+ KE9TVM2CNN+N1+nF8yTuq1DStMduYfPhsl5m13n97ZoQRSo0YDoKq3siLwyT2yjuYSilfrg4U0
+ 78AAAA=
+X-Change-ID: 20261109-setmemtable-fix-d9841f2d0eb7
+To: <qemu-devel@nongnu.org>
+CC: "Michael S. Tsirkin" <mst@redhat.com>,
+        Stefano Garzarella
+	<sgarzare@redhat.com>,
+        <vhost-user@lists.linux.dev>, Simon Lucido
+	<simonlucido@meta.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2306; i=simonlucido@meta.com;
+ h=from:subject:message-id; bh=G8tVbopjhKBGxwCg6LhcWLK28YAS3os7dsUNIewGMGU=;
+ b=owEB7QES/pANAwAIAYpLxATtCrXeAcsmYgBq9kAH0OnQ+gt3hpwRZTM95N8VYQ0hAwrL8DVvg
+ HQjYwMhrA2JAbMEAAEIAB0WIQTwgj9aD8lZwgupzcGKS8QE7Qq13gUCavZABwAKCRCKS8QE7Qq1
+ 3vQUC/994ASBcDWWGB73XJB4x3AT1QYQkQ7Ly4Vr1uaNYF8J0omd9QYuJvWU/Ccaq1WJWmQ+wfN
+ jTPrlM5g+KV6xyVVFMEmDDJKYo5IkyVBmSALdDRYOtzbTJq8CJlVN0Xr2nmqotWwnwWVjBCq8J1
+ KWSMM/7vti8R4u7nnPILI/YTVSi6K9+ibP8DWCWrgnSJ/4Jl7aJ88E0gar+Wuv8LhCzC2xyLG/v
+ a8oLvFl8VYWStxmrbvKZOJ3ZaBl2mWRkF88SXySDr22RDJoj75HY5HIqnIbfIR49+MWMe0wo9UG
+ vyQVtpgI5UvcgkQIzAaT6k0OTuOsuW/n9CJqqkq8/KqZdPfIQnUeAV8RBauEqNAC2yCtDhsN8cB
+ SXaerU/dN15GmJI0ikKUWAjkx03m36lzmfKuZV/NU+871kzpAFmRUw+OkAOxdnkj+BXZMbfSvqi
+ tx5uymvlpL7lhvBTPb56NKYBXM4g6Qat+U/Bs132D4oZq1ICRxDAP/1em4boFQBOX7KWA=
+X-Developer-Key: i=simonlucido@meta.com; a=openpgp;
+ fpr=F0823F5A0FC959C20BA9CDC18A4BC404ED0AB5DE
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTEyMDA5MCBTYWx0ZWRfX46f2IbIP9qgD
+ d7kiK0X1GFzt9aHLBG3UFXoJx6hUJjrEkF6yGVMOCv3fahzvbvptwYFUeKso/ZRgKncyA7rcp95
+ z9R72uh3/pwfhRdVvbl3TvC3h34jHAg=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTEyMDA5MCBTYWx0ZWRfXwuOoRoTY6OSq
+ nzLKMjRuGCz4IXdA5qDMoT/bBryD22tv7qY+avHqoUL47PT4A4ZWqk349xRex6dFXb0Gy2u5/NI
+ vqDqTywcRt3I4jCz04d2tJMS3IVMYGihN8xtKCXZrD0GIQeEfxJmudMfFpDKQPcthmmlsnshm3r
+ UGtkRbpIBdOAT2vuYvLELzzUMr6gTIrgUOghG8nD3aaCzmdlSDcGC3vX4S1SK7xiv5cBiiFHRJy
+ Hqo7lMjWx6m3naVw7EQZkenlwRZTLBhJRBFmp6r2/G+u7yoFTNPm7GfSwL1+NnoQuqgFkO5WKkP
+ Yf8/Cda01/w5onCzi00Bs8/3MZRNSheH95zrX5Db6NMzt+FEZhn1lyFKZba71GTvVdoHDmL64qH
+ ChsGV12L+4v3nWa4Rzt8lvNFp9G0Nr1TjvP1+Sj74EK0xFB9PbQeUZG5ALQwJmZLLKlywBckok0
+ Sjn6YvYukzYLjz6CMAg==
+X-Authority-Analysis: v=2.4 cv=Df+COftW c=1 sm=1 tr=0 ts=6af6400a cx=c_pps
+ a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=7x6HtfJdh03M6CCDgxCd:22 a=crHB47gyY4rKiduisYu9:22 a=p0WdMEafAAAA:8
+ a=69wJf7TsAAAA:8 a=VabnemYjAAAA:8 a=ClUZ4s5U31nGu7ryxsEA:9 a=QEXdDO2ut3YA:10
+ a=O8hF6Hzn-FEA:10 a=Fg1AiH1G6rFz08G2ETeA:22 a=gKebqoRLp9LExxC7YDUY:22
+X-Proofpoint-GUID: SX5zxyzKvaDJ2xW_a13kU6KodIBleL5Y
+X-Proofpoint-ORIG-GUID: SX5zxyzKvaDJ2xW_a13kU6KodIBleL5Y
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-12_03,2026-11-11_03,2025-10-01_01
 
-On Mon, Nov 09, 2026 at 10:55:42PM +0100, Simon Lucido wrote:
->During postcopy, the vhost-user backend ought to return the base address
->at which they mapped regions during SET_MEM_TABLE and ADD_MEM_REG calls
->[0]. This was done properly for ADD_MEM_REG, but not for SET_MEM_TABLE,
->so any frontend that was relying on that call would not work.
->
->QEMU wasn't affected as it uses ADD_MEM_REG, but any combination of a
->frontend that uses SET_MEM_TABLE and libvhost-user backend is.
->
->[0]: https://gitlab.com/qemu-project/qemu/-/blob/144393da8d4bd307a22525c7feea2bb29a0a7556/docs/interop/vhost-user.rst#L1263
->
->Fixes: d288eef3a0a8 ("libvhost-user: fix -Waddress-of-packed-member")
+During postcopy, the vhost-user backend ought to return the base address
+at which they mapped regions during SET_MEM_TABLE and ADD_MEM_REG calls
+[0]. This was done properly for ADD_MEM_REG, but not for SET_MEM_TABLE,
+so any frontend that was relying on that call would not work.
 
-IMO the commit message should explain a bit better why that commit 
-introduced the bug. I spent some time to understand the relationship, 
-that IIUC is because from that commit we are using a local copy of 
-VhostUserMemory.
+The bug appeared in d288eef3a0a8, which, to silence the
+address-of-packed-member warning, created a local copy of vhost message.
+That's fine for reading the table, but for postcopy, we also write into
+it to send the base addresses back, and after d288eef3a0a8 we ended up
+writing into the copy.
 
-The patch LGTM.
+This bug was affecting ADD_MEM_REG and SET_MEM_TABLE alike, until
+905e8c7e260d fixed the ADD_MEM_REG path by copying back the memory into
+the payload.
 
-Thanks,
-Stefano
+This commit fixes the SET_MEM_TABLE path by doing exactly that: copying
+back the memory table into the payload.
 
->Signed-off-by: Simon Lucido <simonlucido@meta.com>
->---
-> subprojects/libvhost-user/libvhost-user.c | 1 +
-> 1 file changed, 1 insertion(+)
->
->diff --git a/subprojects/libvhost-user/libvhost-user.c b/subprojects/libvhost-user/libvhost-user.c
->index 52817cc733d..df215810339 100644
->--- a/subprojects/libvhost-user/libvhost-user.c
->+++ b/subprojects/libvhost-user/libvhost-user.c
->@@ -1119,6 +1119,7 @@ vu_set_mem_table_exec(VuDev *dev, VhostUserMsg *vmsg)
->
->     if (dev->postcopy_listening) {
->         /* Send the message back to qemu with the addresses filled in */
->+        vmsg->payload.memory = m;
->         vmsg->fd_num = 0;
->         if (!vu_send_reply(dev, dev->sock, vmsg)) {
->             vu_panic(dev, "failed to respond to set-mem-table for postcopy");
->
->---
->base-commit: 144393da8d4bd307a22525c7feea2bb29a0a7556
->change-id: 20261109-setmemtable-fix-d9841f2d0eb7
->
->Best regards,
->--
->Simon Lucido <simonlucido@meta.com>
->
+QEMU wasn't affected as it uses ADD_MEM_REG, but any combination of a
+frontend that uses SET_MEM_TABLE and libvhost-user backend is.
+
+[0]: https://gitlab.com/qemu-project/qemu/-/blob/144393da8d4bd307a22525c7feea2bb29a0a7556/docs/interop/vhost-user.rst#L1263
+
+Fixes: d288eef3a0a8 ("libvhost-user: fix -Waddress-of-packed-member")
+Signed-off-by: Simon Lucido <simonlucido@meta.com>
+---
+Changes in v2:
+- Reword the commit message to better explain the original bug
+- Link to v1: https://lists.nongnu.org/archive/html/qemu-devel/2026-11/msg02840.html
+---
+ subprojects/libvhost-user/libvhost-user.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/subprojects/libvhost-user/libvhost-user.c b/subprojects/libvhost-user/libvhost-user.c
+index 52817cc733d..df215810339 100644
+--- a/subprojects/libvhost-user/libvhost-user.c
++++ b/subprojects/libvhost-user/libvhost-user.c
+@@ -1119,6 +1119,7 @@ vu_set_mem_table_exec(VuDev *dev, VhostUserMsg *vmsg)
+ 
+     if (dev->postcopy_listening) {
+         /* Send the message back to qemu with the addresses filled in */
++        vmsg->payload.memory = m;
+         vmsg->fd_num = 0;
+         if (!vu_send_reply(dev, dev->sock, vmsg)) {
+             vu_panic(dev, "failed to respond to set-mem-table for postcopy");
+
+---
+base-commit: 144393da8d4bd307a22525c7feea2bb29a0a7556
+change-id: 20261109-setmemtable-fix-d9841f2d0eb7
+
+Best regards,
+--  
+Simon Lucido <simonlucido@meta.com>
 
